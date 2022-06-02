@@ -43,7 +43,7 @@ export class User {
   tokenId?: number;
 
   @Column({ type: 'boolean', default: false })
-  hiddenPercentage: boolean;
+  hiddenPercentage?: boolean;
 
   @Column({ default: 0 })
   numOfSponsor?: number;
@@ -55,7 +55,7 @@ export class User {
   usdtSpend: number;
 
   @Column({ default: 0, type: 'double' })
-  mgmPurchased: number;
+  mgmPurchased?: number;
 
   @Column({ default: 0, type: 'double' })
   readonly mlonPurchased: number;
@@ -88,7 +88,7 @@ export class User {
   totalUplineString: string;
 
   @Column({ default: 0 })
-  dailyUSDTamount: number;
+  dailyUSDTamount?: number;
 
   @Column({ default: 0 })
   usdtRewards: number;
@@ -97,7 +97,7 @@ export class User {
   lockTransfer: boolean;
 
   @Column({ type: 'boolean', default: false })
-  lockWithdrawMgm: boolean;
+  lockWithdrawMgm?: boolean;
 
   @Column({ default: null })
   hash: string;
@@ -109,7 +109,7 @@ export class User {
   reservedNFT: boolean;
 
   @Column({ default: 0, type: 'double' })
-  mgmTokensForFiftyCent: number;
+  mgmTokensForFiftyCent?: number;
 
   @Column({
     nullable: true,
@@ -136,4 +136,20 @@ export class User {
     const userParent = await getRepository(User).findOne({ id: parentId });
     this.parent = userParent;
   }
+
+  @Column({ default: '0' })
+  mlonTokenBalance?: string;
+
+  @Column({ default: 0, type: 'double' })
+  mlonPurchasedV2?: number;
+
+  // update name dailyUSDTamount to weeklyUSDTAmount
+  @Column({ default: 0 })
+  weeklyUSDTAmount?: number;
+
+  @Column({ type: 'boolean', default: false })
+  lockWithdrawMlon?: boolean;
+
+  @Column({ default: 0, type: 'double' })
+  mlonTokensForFiftyCent?: number;
 }

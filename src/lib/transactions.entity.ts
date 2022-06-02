@@ -49,9 +49,9 @@ export class Transaction {
 
   // this is NFTType
   @Column({ default: null })
-  rarity: string;
+  rarity?: string;
 
   // tokenId for NFT
   @Column({ default: null })
-  tokenId: number;
+  tokenId?: number;
 }
